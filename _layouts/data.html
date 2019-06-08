@@ -17,7 +17,11 @@ layout: default
 
 {% for dept in site.data.departments %}
 
-	{% assign dept-start-date = dept.start-date | date: "%Y-%m-%d" %}
+	{% if dept.start-date == "unknown" %}
+		{% assign dept-start-date = reshuffle-start-date | date: "%Y-%m-%d" %}
+	{% else %}
+		{% assign dept-start-date = dept.start-date | date: "%Y-%m-%d" %}
+	{% endif %}
 	
 	{% if dept.end-date == "present" %}
 		{% assign dept-end-date = todays-date %}
