@@ -2,7 +2,11 @@
 
 {% for dept in site.data.departments %}
 
-	{% assign dept-start-date = dept.start-date | date: "%Y-%m-%d" %}
+	{% if dept.start-date == "unknown" %}
+		{% assign dept-start-date = reshuffle-start-date | date: "%Y-%m-%d" %}
+	{% else %}
+		{% assign dept-start-date = dept.start-date | date: "%Y-%m-%d" %}
+	{% endif %}	
 	
 	{% if dept.end-date == "present" %}
 		{% assign dept-end-date = todays-date %}
@@ -96,8 +100,12 @@
 
 {% for dept in site.data.departments %}
 
-	{% assign dept-start-date = dept.start-date | date: "%Y-%m-%d" %}
-	
+	{% if dept.start-date == "unknown" %}
+		{% assign dept-start-date = reshuffle-start-date | date: "%Y-%m-%d" %}
+	{% else %}
+		{% assign dept-start-date = dept.start-date | date: "%Y-%m-%d" %}
+	{% endif %}
+		
 	{% if dept.end-date == "present" %}
 		{% assign dept-end-date = todays-date %}
 	{% else %}
@@ -130,7 +138,7 @@
 
 		<section id="data-{{ dept.css }}" class="app-department">
 					
-			<header class="app-department--header section-header--{{ dept.css }}">
+			<header class="app-department--header small section-header--{{ dept.css }}">
 			
 			<span class="department-name">
 				<h2 class="department-name">{{ dept.department }}</h2>
