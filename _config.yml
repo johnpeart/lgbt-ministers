@@ -57,4 +57,4 @@ sass:
 collections:
   ministers:
     output: true
-    permalink: /historic/ministers/:year-:month-:day-:slug
+    permalink: /historic/:year-:month-:day-:slug
