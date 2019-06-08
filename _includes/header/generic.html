@@ -1,0 +1,20 @@
+<section id="app-header" {% if page.layout contains == "app" %}class="closed"{% endif %}>
+							
+	<header class="app-header--logo">
+		
+		<aside class="banner-alert">
+			<h1>Under construction</h1>
+			<p>This website is under construction, and the data might not be accurate.</p>
+		</aside>
+				
+		<div class="container">
+
+			<img class="app-header--rainbow-portcullis" src="{{ '/site/logo.svg' | prepend: site.image-path | prepend: site.asset-path | prepend: site.baseurl | prepend: site.url }}" alt="A rainbow inspired version of Parliament's Portcullis symbol">
+			<h1 class="app-header--wordmark">{{ site.title }}</h1>
+			<p class="app-header--wordmark--subtitle">A dataset of UK Government ministers who are openly lesbian, gay, bisexual or trans (LGBT)</p>
+						
+		</div>
+		
+	</header>
+					
+</section>

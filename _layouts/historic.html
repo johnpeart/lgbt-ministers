@@ -1,0 +1,50 @@
+---
+layout: default
+---
+
+<main id="page">
+		
+	{% include header/generic.html %}
+	
+	<section id="page">
+		
+		<div class="container">
+			
+			<h1>Historic data</h1>
+			
+			<p>Use this page to look at previous ministerial appointees.</p>
+			
+			<p>Each period represents any change to the ministerial appointees within a government.</p>
+			
+			<ul>
+				
+				<li>
+					<a href="{{ site.url | append: site.baseurl | append: '/' }}" title="See the current data for this Parliament">
+						<p class="date">
+							<span class="label">Current ministers</span>
+							<br>
+							<span class="large-date">Right now</span>
+						</p>
+					</a>
+				</li>
+			{% assign sorted = site.ministers | reverse %} 
+			{% for appointees in sorted %}
+				<li>
+					<a href="{{ site.url | append: site.baseurl | append: appointees.url }}" title="See data for Parliament {{ appointees.slug }}ing {{ appointees.date | date: "%-d %B %Y" }}">
+						<p class="date">
+							<span class="label">Ministers for the period</span>
+							<br>
+							<span class="large-date">{{ appointees.start-date | date: "%-d %B %Y" }} to {{ appointees.end-date | date: "%-d %B %Y" }}</span>
+						</p>
+						<p class="reason">{{ appointees.reason }}</p>
+					</a>
+				</li>
+			{% endfor %}
+				
+			</ul>
+		
+		</div>
+		
+	</section>
+			
+</main>

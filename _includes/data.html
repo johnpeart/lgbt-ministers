@@ -1,0 +1,153 @@
+<!-- THIS CODE IS FOR departments OR GROUPS WITH AT LEAST 1 LGBT minister -->
+
+{% for dept in site.data.departments %}
+
+	{% assign dept-start-date = dept.start-date | date: "%Y-%m-%d" %}
+	
+	{% if dept.end-date == "present" %}
+		{% assign dept-end-date = todays-date %}
+	{% else %}
+		{% assign dept-end-date = dept.end-date | date: "%Y-%m-%d" %}
+	{% endif %}
+
+	{% if dept-start-date <= reshuffle-start-date and dept-end-date >= reshuffle-end-date %}
+	
+	{% assign count-ministers = 0 %}
+
+	{% for minister in site.data.ministers %}
+	
+		{% assign minister-start-date = minister.start-date | date: "%Y-%m-%d" %}
+
+		{% if minister.end-date == "present" %}
+			{% assign minister-end-date = todays-date %}
+		{% else %}
+			{% assign minister-end-date = minister.end-date | date: "%Y-%m-%d" %}
+		{% endif %}
+		
+		{% if dept.department == minister.department %}
+			{% if minister-start-date <= reshuffle-start-date and minister-end-date >= reshuffle-start-date %}
+				{% assign count-ministers = count-ministers | plus: 1 %}
+			{% endif %}
+		{% endif %}
+
+	{% endfor %}
+
+	{% if count-ministers > 0 %}
+
+	<section id="data-{{ dept.css }}" class="app-department">
+				
+	<header class="app-department--header section-header--{{ dept.css }}">
+
+		<span class="department-name">
+			<h2 class="department-name">{{ dept.department }}</h2>
+		
+			<p class="total-ministers">
+				{{ count-ministers }}
+					{% if count-ministers != 1 %}LGBT ministers
+					{% elsif count-ministers == 1 %}LGBT minister{% endif %}
+					
+			</p>
+		</span>
+	
+	</header>
+
+	<ul class="list-of-ministers">
+	{% for minister in site.data.ministers %}
+	
+		{% assign minister-start-date = minister.start-date | date: "%Y-%m-%d" %}
+	
+		{% if minister.end-date == "present" %}
+			{% assign minister-end-date = todays-date %}
+		{% else %}
+			{% assign minister-end-date = minister.end-date | date: "%Y-%m-%d" %}
+		{% endif %}
+		
+		{% if dept.department == minister.department %}
+			{% if minister-start-date <= reshuffle-start-date and minister-end-date >= reshuffle-start-date %}
+
+
+			<li class="card" tabindex="0">
+				<p class="card--minister-name">{{ minister.name }}</p>
+				<p class="card--minister-portfolio">{{ minister.portfolio }}</p>
+				<p class="card--minister-constituency">{{ minister.constituency }}</p>
+				<p class="card--minister-source"><strong>Source:</strong> <a href="{{ minister.source-link }}" title="Source for {{ minister.name }}: visit {{ minister.source-description }}">{{ minister.source-description }}</a>, {{ minister.source-date | date: "%d %b %Y" }}</p>
+			</li>
+
+			{% endif %}
+		{% endif %}
+		
+	{% endfor %}
+	</ul>
+
+</section>
+
+	{% endif %}
+	
+	{% endif %}
+		
+{% endfor %}
+
+
+
+
+<!-- THIS CODE IS FOR departments OR GROUPS WITH NO LGBT ministers -->
+
+<section id="data-zero-mps" class="app-department">
+
+{% for dept in site.data.departments %}
+
+	{% assign dept-start-date = dept.start-date | date: "%Y-%m-%d" %}
+	
+	{% if dept.end-date == "present" %}
+		{% assign dept-end-date = todays-date %}
+	{% else %}
+		{% assign dept-end-date = dept.end-date | date: "%Y-%m-%d" %}
+	{% endif %}
+
+	{% if dept-start-date <= reshuffle-start-date and dept-end-date >= reshuffle-end-date %}
+	
+	{% assign count-ministers = 0 %}
+
+	{% for minister in site.data.ministers %}
+	
+		{% assign minister-start-date = minister.start-date | date: "%Y-%m-%d" %}
+
+		{% if minister.end-date == "present" %}
+			{% assign minister-end-date = todays-date %}
+		{% else %}
+			{% assign minister-end-date = minister.end-date | date: "%Y-%m-%d" %}
+		{% endif %}
+		
+		{% if dept.department == minister.department %}
+			{% if minister-start-date <= reshuffle-start-date and reshuffle-end-date <= minister-end-date %}
+				{% assign count-ministers = count-ministers | plus: 1 %}
+			{% endif %}
+		{% endif %}
+
+	{% endfor %}
+
+	{% if count-ministers == 0 %}
+
+		<section id="data-{{ dept.css }}" class="app-department">
+					
+			<header class="app-department--header section-header--{{ dept.css }}">
+			
+			<span class="department-name">
+				<h2 class="department-name">{{ dept.department }}</h2>
+			
+				<p class="total-ministers">
+					0 LGBT ministers
+				</p>
+			</span>		
+			
+			</header>
+			
+		</section>
+
+	{% endif %}
+
+	{% endif %}
+
+{% endfor %}
+
+</section>
