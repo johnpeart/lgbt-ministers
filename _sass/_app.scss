@@ -506,6 +506,12 @@ main#app-main {
 			position: 		relative;
 			
 			text-align: 		center;
+
+			min-height: 	320px;
+			
+			&.small {
+				min-height: auto;
+			}
 					
 			@include sticky {
 				top: 0;
@@ -611,22 +617,6 @@ main#app-main {
 						0 1px 2px rgba(0,0,0,0.24);
 						
 		transition: 		0.25s all;
-		
-		@include xs {
-			height: 			($container-padding * 3) + $minister-text-font-size-base-xs + ($minister-text-font-size-base-xs * 0.75);
-		}
-		@include sm {
-			height: 			($container-padding * 3) + $minister-text-font-size-base-sm + ($minister-text-font-size-base-sm * 0.75);
-		}
-		@include md {
-			height: 			($container-padding * 3) + $minister-text-font-size-base-sm + ($minister-text-font-size-base-md * 0.75);
-		}
-		@include lg {
-			height: 			($container-padding * 3) + $minister-text-font-size-base-lg + ($minister-text-font-size-base-lg * 0.75);
-		}
-		@include xl {
-			height: 			($container-padding * 3) + $minister-text-font-size-base-xl + ($minister-text-font-size-base-xl * 0.75);
-		}
 	
 		overflow-y:			hidden;
 			
@@ -638,30 +628,7 @@ main#app-main {
 			box-shadow: 	0 14px 28px rgba(0,0,0,0.25), 
 						0 10px 10px rgba(0,0,0,0.22);
 		}
-	
-		&:focus,
-		&:focus-within {
-			@include xs {
-				height: 			$container-padding + $minister-text-font-size-base-xs +$container-padding + $container-padding + ($minister-text-font-size-base-xs * 0.75) + $container-padding + ($minister-text-font-size-base-xs * 0.75) + ($minister-text-padding-bottom-xs / 2) + ($minister-text-font-size-base-xs * 0.6) + $container-padding;
-			}
-			@include sm {
-				height: 			$container-padding + $minister-text-font-size-base-sm +$container-padding + $container-padding + ($minister-text-font-size-base-sm * 0.75) + $container-padding + ($minister-text-font-size-base-sm * 0.75) + ($minister-text-padding-bottom-sm / 2) + ($minister-text-font-size-base-sm * 0.6) + $container-padding;
-			}
-			@include md {
-				height: 			$container-padding + $minister-text-font-size-base-md +$container-padding + $container-padding + ($minister-text-font-size-base-md * 0.75) + $container-padding + ($minister-text-font-size-base-md * 0.75) + ($minister-text-padding-bottom-md / 2) + ($minister-text-font-size-base-md * 0.6) + $container-padding;
-			}
-			@include lg {
-				height: 			$container-padding + $minister-text-font-size-base-lg +$container-padding + $container-padding + ($minister-text-font-size-base-lg * 0.75) + $container-padding + ($minister-text-font-size-base-lg * 0.75) + ($minister-text-padding-bottom-lg / 2) + ($minister-text-font-size-base-lg * 0.6) + $container-padding;
-			}
-			@include xl {
-				height: 			$container-padding + $minister-text-font-size-base-xl +$container-padding + $container-padding + ($minister-text-font-size-base-xl * 0.75) + $container-padding + ($minister-text-font-size-base-xl * 0.75) + ($minister-text-padding-bottom-xl / 2) + ($minister-text-font-size-base-xl * 0.6) + $container-padding;
-			}
-		
-			overflow-y:			hidden;
 			
-			transition:			0.25s all;
-		}
-		
 		p:last-of-type {
 			padding-bottom: 		0;
 		}
@@ -676,9 +643,7 @@ main#app-main {
 			
 			font-weight: 		$minister-text-font-weight;
 			text-align: 			center;
-			
-			line-height: 		1;
-			
+						
 			padding:			$container-padding $container-padding;
 			
 			@include xs {
@@ -708,34 +673,34 @@ main#app-main {
 			
 			@include xs {
 				font-size: 		$minister-text-font-size-base-xs * 0.75;
-				padding-bottom: 	$minister-text-padding-bottom-xs / 2;
+				padding-bottom: 	$minister-text-padding-bottom-xs;
 			}
 			@include sm {
 				font-size: 		$minister-text-font-size-base-sm * 0.75;
-				padding-bottom: 	$minister-text-padding-bottom-sm / 2;
+				padding-bottom: 	$minister-text-padding-bottom-sm;
 			}
 			@include md {
 				font-size: 		$minister-text-font-size-base-md * 0.75;
-				padding-bottom: 	$minister-text-padding-bottom-md / 2;
+				padding-bottom: 	$minister-text-padding-bottom-md;
 			}
 			@include lg {
 				font-size: 		$minister-text-font-size-base-lg * 0.75;
-				padding-bottom: 	$minister-text-padding-bottom-lg / 2;
+				padding-bottom: 	$minister-text-padding-bottom-lg;
 			}
 			@include xl {
 				font-size: 		$minister-text-font-size-base-xl * 0.75;
-				padding-bottom: 	$minister-text-padding-bottom-xl / 2;
+				padding-bottom: 	$minister-text-padding-bottom-xl;
 			}
 		}
 		
 		p.card--minister-portfolio {
 			padding-top: 		0;
+			padding-left: 		20px;
+			padding-right: 		20px;
 			
 			background: 		$white;
 						
 			text-align: 			center;
-			
-			line-height: 		1;
 			
 			@include xs {
 				font-size: 		$minister-text-font-size-base-xs * 0.75;
