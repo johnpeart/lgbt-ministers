@@ -507,7 +507,17 @@ main#app-main {
 			
 			text-align: 		center;
 
-			min-height: 	320px;
+			@include md {
+				min-height: 	180px;
+			}
+			
+			@include lg {
+				min-height: 	200px;
+			}
+			
+			@include xl {
+				min-height: 	320px;
+			}
 			
 			&.small {
 				min-height: auto;
