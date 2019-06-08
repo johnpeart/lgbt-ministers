@@ -70,18 +70,18 @@ main#page {
 				
 			}
 		
-			img.app-header--rainbow-portcullis {
+			img.app-header--rainbow-redbox {
 				
 				@include xs {
-					width: 120px;
+					width: 150px;
 				}
 				
 				@include sm {
-					width: 140px;
+					width: 170px;
 				}
 				
 				@include md-up {
-					width: 160px;
+					width: 200px;
 				}
 				
 			}
@@ -95,6 +95,30 @@ main#page {
 			}
 			
 		}
+		
+		aside.banner-alert {
+			display: 		block;
+			position: 		relative;
+		
+			@include sticky {
+				top: 		0;
+				left: 0;
+			}
+			
+			padding:		0 20px 10px; 	
+			
+			z-index: 		99999999999999;
+			
+			min-height: 	50px;
+			
+			background:		$yellow;
+			color:			$black !important;
+			
+			h1 {
+				padding-bottom: 10px;
+			}
+		}
+
 				
 	}
 	
