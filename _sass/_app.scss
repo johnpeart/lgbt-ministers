@@ -278,15 +278,15 @@ main#app-main {
 			img.app-header--rainbow-redbox {
 				
 				@include xs {
-					width: 120px;
+					width: 150px;
 				}
 				
 				@include sm {
-					width: 140px;
+					width: 170px;
 				}
 				
 				@include md-up {
-					width: 160px;
+					width: 200px;
 				}
 				
 			}
