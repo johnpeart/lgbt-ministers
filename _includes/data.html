@@ -28,7 +28,7 @@
 			{% assign minister-end-date = minister.end-date | date: "%Y-%m-%d" %}
 		{% endif %}
 		
-		{% if dept.department == minister.department %}
+		{% if minister.department contains dept.department %}
 			{% if minister-start-date <= reshuffle-start-date and minister-end-date >= reshuffle-start-date %}
 				{% assign count-ministers = count-ministers | plus: 1 %}
 			{% endif %}
@@ -66,7 +66,7 @@
 			{% assign minister-end-date = minister.end-date | date: "%Y-%m-%d" %}
 		{% endif %}
 		
-		{% if dept.department == minister.department %}
+		{% if minister.department contains dept.department %}
 			{% if minister-start-date <= reshuffle-start-date and minister-end-date >= reshuffle-start-date %}
 
 
