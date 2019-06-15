@@ -354,7 +354,7 @@ main#app-main {
 			
 			display: 		block;
 			position: 		relative;
-			
+						
 			color: 			$black;
 			background: 		$white;
 			
@@ -430,7 +430,7 @@ main#app-main {
 			}
 			
 			article {
-				padding: 		($container-padding * 2) 0;
+				padding: 		0 0 ($container-padding * 2) 0;
 			}
 			
 			blockquote ~ article {

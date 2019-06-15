@@ -32,24 +32,26 @@
 		
 		<article id="app-header--about--intro">
 			
+			<blockquote>
+				{% if page.url contains 'historic' %}
+					<p><strong>From {{ reshuffle-start-date | date: "%d %B %Y" }} to {{ reshuffle-end-date | date: "%d %B %Y" }} there were {{ total-ministers }} ministers who define as LGBT in the UK Government</strong></p>
+					<p>{{ count-departments-non-zero | minus: 1 }} departments had 1 or more ministers who were LGBT.</strong></p>
+					{% if page.update %}
+					<p><em>This data was correct as of {{ page.update | date: "%-d %B %Y" }}.</em></p>
+					{% else %}
+					<p><em>This data was correct as of {{ page.end-date | date: "%-d %B %Y" }}.</em></p>
+					{% endif %}
+				
+				{% else %}
+					<p><strong>Currently, there are {{ total-ministers }} ministers who define as LGBT in the UK Government.</strong></p>
+					<p>{{ count-departments-non-zero | minus: 1 }} departments have 1 or more ministers who are LGBT.</strong></p>
+					<p><em>This data was last updated 8 June 2019.</em></p>
+				{% endif %}
+			</blockquote>
+			
 			<div class="container">
 		
-				<blockquote>
-					{% if page.url contains 'historic' %}
-						<p><strong>From {{ reshuffle-start-date | date: "%d %B %Y" }} to {{ reshuffle-end-date | date: "%d %B %Y" }} there were {{ total-ministers }} ministers who define as LGBT in the UK Government</strong></p>
-						<p>{{ count-departments-non-zero | minus: 1 }} departments had 1 or more ministers who were LGBT.</strong></p>
-						{% if page.update %}
-						<p><em>This data was correct as of {{ page.update | date: "%-d %B %Y" }}.</em></p>
-						{% else %}
-						<p><em>This data was correct as of {{ page.end-date | date: "%-d %B %Y" }}.</em></p>
-						{% endif %}
-					
-					{% else %}
-						<p><strong>Currently, there are {{ total-ministers }} ministers who define as LGBT in the UK Government.</strong></p>
-						<p>{{ count-departments-non-zero | minus: 1 }} departments have 1 or more ministers who are LGBT.</strong></p>
-						<p><em>This data was last updated 8 June 2019.</em></p>
-					{% endif %}
-				</blockquote>
+				
 				
 				<h1 id="about-this-site">About this site</h1>
 				
