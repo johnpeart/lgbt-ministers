@@ -34,7 +34,7 @@
 			
 			<blockquote>
 				{% if page.url contains 'historic' %}
-					<p><strong>From {{ reshuffle-start-date | date: "%d %B %Y" }} to {{ reshuffle-end-date | date: "%d %B %Y" }} there were {{ total-ministers }} ministers who define as LGBT in the UK Government</strong></p>
+					<p><strong>From {{ reshuffle-start-date | date: "%d %B %Y" }} to {{ reshuffle-end-date | date: "%d %B %Y" }} there were {{ count-unique-ministers }} ministers who defined as LGBT in the UK Government, appointed to {{ total-ministers }} ministerial portfolios.</strong></p>
 					<p>{{ count-departments-non-zero | minus: 1 }} departments had 1 or more ministers who were LGBT.</strong></p>
 					{% if page.update %}
 					<p><em>This data was correct as of {{ page.update | date: "%-d %B %Y" }}.</em></p>
@@ -43,7 +43,7 @@
 					{% endif %}
 				
 				{% else %}
-					<p><strong>Currently, there are {{ total-ministers }} ministers who define as LGBT in the UK Government.</strong></p>
+					<p><strong>Currently, there are {{ count-unique-ministers }} ministers who define as LGBT in the UK Government, appointed to {{ total-ministers }} ministerial portfolios.</strong></p>
 					<p>{{ count-departments-non-zero | minus: 1 }} departments have 1 or more ministers who are LGBT.</strong></p>
 					<p><em>This data was last updated 8 June 2019.</em></p>
 				{% endif %}
