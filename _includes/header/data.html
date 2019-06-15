@@ -2,10 +2,12 @@
 							
 	<header class="app-header--logo">
 		
+		{% if page.url contains 'historic' %}
 		<aside class="banner-alert">
-			<h1>Under construction</h1>
-			<p>This website is under construction, and the data might not be accurate.</p>
+			<p><strong>You are viewing data for ministers that were appointed between {{ reshuffle-start-date | date: "%d %B %Y" }} and {{ reshuffle-end-date | date: "%d %B %Y" }}.</strong></p>
+			<p><a href="{{ site.url | append: site.baseurl | append: "/" }}" title="Visit the home page for the latest data">View the latest data</a></p>			
 		</aside>
+		{% endif %}
 				
 		<div class="container">
 
@@ -21,15 +23,12 @@
 	
 	<aside id="app-header--about" class="closed">
 		
-		<blockquote>
-			{% if page.url contains 'historic' %}
-			<p><strong>You are viewing data for ministers that were appointed between {{ reshuffle-start-date | date: "%d %B %Y" }} and {{ reshuffle-end-date | date: "%d %B %Y" }}.</strong></p>
-			<p><a href="{{ site.url | append: site.baseurl | append: "/" }}" title="Visit the home page for the latest data">View the latest data</a></p>				
-			{% else %}
+		{% unless page.url contains 'historic' %}
+		<blockquote>										
 			<p><strong>You are viewing data for current ministerial appointees.</strong></p>
 			<p><a href="{{ site.url | append: site.baseurl | append: "/historic/" }}" title="Visit the home page for the latest data">View historical data</a></p>
-			{% endif %}
 		</blockquote>
+		{% endunless %}		
 		
 		<article id="app-header--about--intro">
 			
