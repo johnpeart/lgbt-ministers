@@ -674,9 +674,7 @@ main#app-main {
 		}
 		
 		p.card--minister-constituency {
-			
-			padding-top: 		$container-padding;
-			
+						
 			text-align: 			center;
 			
 			line-height: 		1;
@@ -704,13 +702,12 @@ main#app-main {
 		}
 		
 		p.card--minister-portfolio {
-			padding-top: 		0;
+			padding-top: 		$container-padding;
 			padding-left: 		20px;
 			padding-right: 		20px;
-			
-			background: 		$white;
 						
 			text-align: 			center;
+			font-weight: 			600;
 			
 			@include xs {
 				font-size: 		$minister-text-font-size-base-xs * 0.75;
