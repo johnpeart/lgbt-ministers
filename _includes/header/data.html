@@ -45,7 +45,7 @@
 				{% else %}
 					<p><strong>Currently, there are {{ count-unique-ministers }} ministers who define as LGBT in the UK Government, appointed to {{ total-ministers }} ministerial portfolios.</strong></p>
 					<p>{{ count-departments-non-zero | minus: 1 }} departments have 1 or more ministers who are LGBT.</strong></p>
-					<p><em>This data was last updated 8 June 2019.</em></p>
+					<p><em>This data was last updated {{ site.last-update }}.</em></p>
 				{% endif %}
 			</blockquote>
 			
