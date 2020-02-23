@@ -9,7 +9,8 @@ url: "https://ministers.whoare.lgbt"
 author: "John Peart"
 
 last-update: "5 January 2020"
-election-period: "current"
+election-mode: false
+reshuffle-mode: true
 
 # Images and assets
 image-path: "/assets/images"

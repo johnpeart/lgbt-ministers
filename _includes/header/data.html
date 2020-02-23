@@ -2,6 +2,20 @@
 							
 	<header class="app-header--logo">
 		
+		{% if site.reshuffle-mode == true %}
+		<aside class="banner-alert">
+			<h1>We've had a reshuffle</h1>
+			<p><strong>This dataset is being updated to reflect the outcome of the recent government reshuffle.</strong> The data are being updated as quickly as possible but may not be correct right now.</p>
+		</aside>
+		{% endif %}
+		
+		{% if site.election-mode == true %}
+		<aside class="banner-alert">
+			<h1>We've had an election</h1>
+			<p><strong>This dataset is being updated to reflect the outcome of the December 2019 General Election.</strong> The data are being updated as quickly as possible but may not be correct right now.</p>
+		</aside>
+		{% endif %}
+		
 		{% if page.url contains 'historic' %}
 		<aside class="banner-alert">
 			<p><strong>You are viewing data for ministers that were appointed between {{ reshuffle-start-date | date: "%d %B %Y" }} and {{ reshuffle-end-date | date: "%d %B %Y" }}.</strong></p>
