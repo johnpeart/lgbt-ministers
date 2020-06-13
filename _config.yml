@@ -8,7 +8,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://ministers.whoare.lgbt"
 author: "John Peart"
 
-last-update: "5 January 2020"
+last-update: "13 June 2020"
 election-mode: false
 reshuffle-mode: true
 
