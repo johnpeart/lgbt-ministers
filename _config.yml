@@ -10,7 +10,7 @@ author: "John Peart"
 
 last-update: "13 June 2020"
 election-mode: false
-reshuffle-mode: true
+reshuffle-mode: false
 
 # Images and assets
 image-path: "/assets/images"
