@@ -10,7 +10,6 @@ main#page {
 		height: 		100vh;
 		
 		overflow-x: 	scroll;
-		overflow-y: 	hidden;
 		
 		&:after {
 			@include clearfix;
